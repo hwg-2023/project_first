@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body {
+    background-image: url("~@/static/img/wallhaven-l3jg9l_1920x1080.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.div_top {
+    /*指定大小*/
+    float: top;
+    width: 816px;
+    height: 100px;
+    margin: 0 auto 50px;
+    /*设置背景框*/
+
+    background: rgba(0,0,0,.6);
+
+}
+.div_icon {
+    float: right;
+    width: 128px;
+    height: 128px;
+
+}
+.div_top ul li {
+    float: left;
+    list-style: none;
+    width: 170px;
+    height: 100px;
+    margin: 0 15px 0;
+}
+.div_top ul li img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+.div_head h1{
+    margin: 30px auto;
+    text-align: center;
+    font-size: 40px;
+    background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+    -webkit-background-clip: text;
+    color: transparent;
+
+}
+
+.div_big {
+    /*指定大小*/
+    overflow: hidden;
+    width: 400px;
+    background: rgba(0,0,0,.6);
+    margin: 0 auto;
+    text-align: center;
+    /*因为会发生塌陷，所以这边需要一条透明的边框*/
+    border-top: 1px solid transparent;
+    border-radius: 10px;
+}
+.btn1 {
+    width: 100px;
+    height: 50px;
+    margin: 30px auto;
+    border-radius: 25px;
+    font-weight: bold;
+    color: white;
+    background-image: linear-gradient(to right, #56ccf2, #2f80ed);
+    border: none;
+}
+.div_bottom {
+    font-weight: bold;
+}
+h1 {
+    margin-top: 85px;
+    color: white;
+}
+h1 a {
+    text-decoration: none;
+    color: white;
+}
+h1 a:hover {
+    color: #1cefff;
+}
+.input1 {
+    display: block;
+    width: 230px;
+    height: 40px;
+    margin: 25px auto 40px;
+    font-size: 20px;
+    text-indent: 1em;
+    border: 0;
+    outline: 0;
+    background-color: rgba(0,0,0,.1);
+    border-bottom: 2px solid #4da7e3;
+    /*background: rgba(0,0,0,.6);*/
+
+}
+.input2 {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    margin: 20px ;
+    border-radius: 25px;
+    font-weight: bold;
+    color: white;
+    background-image: linear-gradient(to right,
+    #a9bef4,#fb918e);
+    border: none;
+
+}
+.div_big .image_22 {
+    float: left;
+    width: 116px;
+    height: 105px;
+    background-image: url("~@/static/img/22_open.72c00877改.png");
+}
+.div_big .image_33 {
+    float: right;
+    width: 116px;
+    height: 105px;
+    background-image: url("~@/static/img/33_open.43a09438改.png");
+
+}
