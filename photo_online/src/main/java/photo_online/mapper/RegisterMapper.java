@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import photo_online.pojo.model.User;
 
 @Mapper
-public interface RegisterMapper extends BaseMapper<User> {
-
+public interface RegisterMapper{
+    Object register(String userAccount);
+    boolean addUser(String userAccount, String userPassword);
 }

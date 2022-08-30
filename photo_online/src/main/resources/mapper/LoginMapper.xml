@@ -8,6 +8,6 @@
             * FROM
             t_user
         WHERE
-            userAccount = '#{userAccount}';
+            userAccount = #{userAccount};
     </select>
 </mapper>

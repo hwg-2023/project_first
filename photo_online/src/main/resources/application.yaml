@@ -6,9 +6,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/photo_online?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/prj02?serverTimezone=UTC
     username: root
-    password: laokeai201314
+    password: 123456
 
 #映射mapper包
 mybatis:
