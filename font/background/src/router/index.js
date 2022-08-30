@@ -28,22 +28,13 @@ const routes = [
   {
     path: '/mainBackground',
     name: 'mainBackground',
+    redirect: '/mainBackground/upload',
     component: () => import('../views/mainBackground'),
     children: [
       {
-        path: 'Fan',
-        name: 'Fan',
-        component: () => import('../Page/Fan')
-      },
-      {
-        path: 'Ju',
-        name: 'Ju',
-        component: () => import('../Page/Ju')
-      },
-      {
-        path: 'Book',
-        name: 'Ju',
-        component: () => import('../Page/Book')
+        path: 'upload',
+        name: 'Upload',
+        component: () => import('../Page/Upload')
       }
     ]
   }

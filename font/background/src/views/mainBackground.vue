@@ -3,22 +3,29 @@
     <div class="div_left">
       <div class="div1_top">
         <img src="../static/icon/布偶猫-稀有色.png" alt="找不到图像哦">
-        <h1>MF</h1>
+        <h1>回忆</h1>
       </div>
       <div class="div1_center">
         Dashboard
       </div>
-      <ul>
-        <li>
-          <router-link to="/mainBackground/Fan">我的追番</router-link>
-        </li>
-        <li>
-          <router-link to="/mainBackground/Ju">我的追剧</router-link>
-        </li>
-        <li>
-          <router-link to="/mainBackground/Book">我的电子书</router-link>
-        </li>
-      </ul>
+      <div class="nav_list">
+<!--        父标题-->
+        <div class="nav_title">
+          <router-link to="/mainBackground/upload">
+            上传图片
+          </router-link>
+        </div>
+        <div class="nav_title" v-on:click="show">
+          <router-link to="#">相册簿</router-link>
+        </div>
+<!--        子标题-->
+        <div class="nav_content" v-show="toShow" v-for="arr in arr1" :key="arr.albumId">
+          <router-link to="">
+            {{arr.albumZoneName}}
+          </router-link>
+        </div>
+
+      </div>
 
     </div>
     <div class="div_center">
@@ -35,7 +42,7 @@
     </div>
     <div class="div_right">
       <div class="div3_top">
-        无边萧木望东流
+        CLZ
       </div>
 
     </div>
@@ -48,10 +55,25 @@ export default {
   name: "mainBackground",
   data: function (){
     return{
-
+      toShow: false,
+      arr1: [
+        {
+          albumId: 1,
+          albumZoneName: 'xx'
+        }
+      ]
     }
   },
   methods: {
+    show(){
+       this.toShow = true
+       this.axios.get('/search/ergodic').then(
+          response => {this.arr1 = response.data;},
+          error => {console.log('失败了',error);}
+      )
+
+    }
+
   }
 }
 </script>
@@ -90,22 +112,46 @@ export default {
     width: 214px;
     height: 80px;
     margin-top: 30px;
-    background-image: url("../static/icon/主页-5.png");
+    background-image: url("../static/icon/相册.png");
     background-repeat: no-repeat;
-    background-position: 25px center;
+    background-position: 20px center;
     text-align: center;
     line-height: 80px;
     font-weight: 700;
     font-size: 19px;
     color: #dcbdff;
   }
-  .div_left ul li {
-    list-style: none;
+  .div_left .nav_list {
     width: 214px;
-    height: 80px;
+    height: 473px;
+    border: 1px solid red;
     text-align: center;
-    line-height: 50px;
+
+  }
+  .div_left .nav_title {
+    width: 214px;
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 60px;
     margin-top: 20px;
+    color: #3c60ba;
+
+  }
+  .div_left .nav_title a {
+    text-decoration: none;
+    color: #3c60ba;
+
+  }
+  .div_left .nav_content {
+    width: 214px;
+    height: 50px;
+    line-height: 50px;
+  }
+  .div_left .nav_content a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
   }
   .div_left ul li a {
     text-decoration: none;
@@ -149,6 +195,7 @@ export default {
     width: 823px;
     height: 626px;
     margin: 28px auto 0;
+    text-align: center;
   }
   .div_right {
     float: left;
