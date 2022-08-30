@@ -26,7 +26,7 @@ public class LoginServiceImpl implements LoginService {
         if (loginDto.getUserPassword().equals(user.getUserPassword())){
             LoginVo loginVo = new LoginVo();
             loginVo.setId(user.getId());
-            loginVo.setUserName(user.getUsername());
+            loginVo.setUserName(user.getUserName());
             loginVo.setGender(user.getGender());
             loginVo.setEmail(user.getEmail());
             return R.success(loginVo);
