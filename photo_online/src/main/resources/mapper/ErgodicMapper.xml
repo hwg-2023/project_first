@@ -8,4 +8,11 @@
             * FROM
             t_album_clz;
     </select>
+
+    <select id="userList" resultType="photo_online.pojo.model.User">
+        SELECT
+            *
+        FROM
+            t_user;
+    </select>
 </mapper>

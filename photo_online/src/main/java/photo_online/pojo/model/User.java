@@ -46,9 +46,9 @@ public class User implements Serializable {
     private String email;
 
     /**
-     * 用户电话号码，用来找回密码，所以必须要有
+     * 逻辑判断是否被禁用，1为有效ID，0为禁用
      */
-    private String phone;
+    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

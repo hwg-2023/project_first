@@ -10,6 +10,7 @@ import photo_online.pojo.model.AlbumStore;
 import photo_online.service.AlbumSearchService;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class AlbumSearchServiceImpl extends ServiceImpl<AlbumSearchMapper, AlbumStore>
@@ -18,10 +19,10 @@ public class AlbumSearchServiceImpl extends ServiceImpl<AlbumSearchMapper, Album
     AlbumSearchMapper albumSearchMapper;
 
     @Override
-    public Object search(String content) {
+    public List<AlbumStore> search(String content) {
         LambdaQueryWrapper<AlbumStore> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         lambdaQueryWrapper.like(AlbumStore::getAlbumName , content);
-        return albumSearchMapper.selectOne(lambdaQueryWrapper);
-
+        //进行模糊搜索
+        return albumSearchMapper.selectList(lambdaQueryWrapper);
     }
 }

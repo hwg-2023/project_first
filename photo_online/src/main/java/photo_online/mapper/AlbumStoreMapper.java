@@ -1,6 +1,6 @@
 package photo_online.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.github.yulichang.base.MPJBaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import photo_online.pojo.model.AlbumStore;
 
@@ -12,7 +12,7 @@ import photo_online.pojo.model.AlbumStore;
 */
 
 @Mapper
-public interface AlbumStoreMapper extends BaseMapper<AlbumStore> {
+public interface AlbumStoreMapper extends MPJBaseMapper<AlbumStore> {
 
 }
 

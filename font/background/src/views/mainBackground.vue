@@ -11,6 +11,16 @@
       <div class="nav_list">
 <!--        父标题-->
         <div class="nav_title">
+          <router-link to="/mainBackground/userList" v-show="see">
+            用户列表
+          </router-link>
+        </div>
+        <div class="nav_title">
+          <router-link to="/mainBackground/newAlbum">
+            新建相册
+          </router-link>
+        </div>
+        <div class="nav_title">
           <router-link to="/mainBackground/upload">
             上传图片
           </router-link>
@@ -20,7 +30,7 @@
         </div>
 <!--        子标题-->
         <div class="nav_content" v-show="toShow" v-for="arr in arr1" :key="arr.albumId">
-          <router-link to="">
+          <router-link :to="'/mainBackground/pageReturn?albumId='+arr.albumId">
             {{arr.albumZoneName}}
           </router-link>
         </div>
@@ -30,8 +40,18 @@
     </div>
     <div class="div_center">
       <div class="div2_tops">
-        <input type="text" placeholder="Search + Enter">
-        <img src="" alt="">
+        <div class="div2_1">
+<!--          全局搜索框-->
+
+          <input type="text" placeholder="Search" v-model:value="value1">
+          <button>
+            <router-link :to="'/mainBackground/globalSearch?content='+value1">
+              搜索
+            </router-link>
+          </button>
+
+        </div>
+
       </div>
       <div class="div2_top">
 
@@ -42,7 +62,11 @@
     </div>
     <div class="div_right">
       <div class="div3_top">
-        CLZ
+        岑林泽
+      </div>
+      <div class="div3_top1">
+        20软件工程2班
+        <img src="~@/static/icon/狗头.png" alt="找不到图片哦">
       </div>
 
     </div>
@@ -59,9 +83,11 @@ export default {
       arr1: [
         {
           albumId: 1,
-          albumZoneName: 'xx'
+          albumZoneName: ''
         }
-      ]
+      ],
+      see: '',
+      value1: ''
     }
   },
   methods: {
@@ -71,9 +97,14 @@ export default {
           response => {this.arr1 = response.data;},
           error => {console.log('失败了',error);}
       )
-
     }
-
+  },
+  mounted() {
+    if (this.$route.query.userAccount === 'admin'){
+      this.see = true
+    }else {
+      this.see = false
+    }
   }
 }
 </script>
@@ -123,7 +154,7 @@ export default {
   }
   .div_left .nav_list {
     width: 214px;
-    height: 473px;
+    height: 673px;
     border: 1px solid red;
     text-align: center;
 
@@ -170,18 +201,40 @@ export default {
   .div_center .div2_tops {
     width: 904px;
     height: 85px;
-    line-height: 85px;
+    border: 1px solid transparent;
     background: #0F2027;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   }
+  .div2_tops .div2_1 {
+    width: 220px;
+    height: 41px;
+    margin-left: 41px;
+    margin-top: 22px;
+  }
+  .div2_1 button {
+    float: right;
+    height: 41px;
+    width: 41px;
+    border: none;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: #1cefff;
+    font-size: 15px;
+    font-weight: bolder;
+  }
+  .div2_1 button a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+  }
   .div_center .div2_tops input {
     width: 179px;
     height: 41px;
-    margin-left: 38px;
     border: none;
-    border-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
     text-indent: 2em;
   }
   .div_center .div2_top {
@@ -210,6 +263,14 @@ export default {
     font-size: 17px;
     font-weight: 900;
     color: #0F2027;
+    font-family: KaiTi;
+  }
+  .div_right .div3_top1 {
+    width: 322px;
+    height: 85px;
+    text-indent: 3em;
+    font-size: 27px;
+    font-weight: 1000;
     font-family: KaiTi;
   }
 </style>

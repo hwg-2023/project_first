@@ -10,8 +10,19 @@ spring:
     username: root
     password: laokeai201314
 
-#映射mapper包
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
+
+---
+#配置访问规则，默认是/**
+spring:
+  mvc:
+    static-path-pattern: /**
+---
+# 设置虚拟地址映射，将本地地址映射成服务器静态资源地址
+spring:
+  web:
+    resources:
+      static-locations: file:E:\image\test_img

@@ -1,8 +1,8 @@
 package photo_online.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import photo_online.pojo.model.Album;
+import photo_online.pojo.model.AlbumClz;
 
-public interface AlbumBuiltService extends IService<Album> {
-    Object built(Album album);
+public interface AlbumBuiltService extends IService<AlbumClz> {
+    Object built(AlbumClz albumClz);
 }

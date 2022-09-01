@@ -35,6 +35,26 @@ const routes = [
         path: 'upload',
         name: 'Upload',
         component: () => import('../Page/Upload')
+      },
+      {
+        path: 'pageReturn',
+        name: 'PageReturn',
+        component: () => import('../Page/PageReturn')
+      },
+      {
+        path: 'newAlbum',
+        name: 'NewAlbum',
+        component: () => import('../Page/NewAlbum')
+      },
+      {
+        path: 'userList',
+        name: 'UserList',
+        component: () => import('../Page/UserList')
+      },
+      {
+        path: 'globalSearch',
+        name: 'GlobalSearch',
+        component: () => import('../Page/GlobalSearch')
       }
     ]
   }
