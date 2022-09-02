@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import photo_online.common.R;
 import photo_online.pojo.model.User;
 import photo_online.service.RegisterService;
 
@@ -17,7 +18,7 @@ public class RegisterController {
     RegisterService registerService;
 
     @RequestMapping("register")
-    public Object register(@RequestBody User user){
+    public R<String> register(@RequestBody User user){
         return registerService.register(user);
     }
 
